@@ -1,0 +1,23 @@
+﻿<Page x:Class="DataBaseProject.MenuAdminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DataBaseProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MenuAdminPage">
+
+    <Grid>
+        <DataGrid Name="DgUsers" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalAlignment="Center" HorizontalContentAlignment="Center">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Имя" Width="150" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Фамилия" Width="150" Binding="{Binding Surname}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Пол" Width="150" Binding="{Binding GenderTable.Genger}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Логин" Width="150" Binding="{Binding Login}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Роль" Width="150" Binding="{Binding RoleTable.Role}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+    </Grid>
+</Page>
