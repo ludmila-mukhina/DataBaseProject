@@ -9,7 +9,11 @@
       Title="MenuAdminPage">
 
     <Grid>
-        <DataGrid Name="DgUsers" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalAlignment="Center" HorizontalContentAlignment="Center">
+        <StackPanel>
+            <Button Click="Button_Click">Просмотр зарегистрированных пользователей</Button>
+            <Button>Просмотр списка котов</Button>
+            <StackPanel Name="SPGrid" Visibility="Collapsed">
+            <DataGrid Name="DgUsers" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalAlignment="Center" HorizontalContentAlignment="Center" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Имя" Width="150" Binding="{Binding Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Фамилия" Width="150" Binding="{Binding Surname}"></DataGridTextColumn>
@@ -18,6 +22,8 @@
                 <DataGridTextColumn Header="Роль" Width="150" Binding="{Binding RoleTable.Role}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        
+                <Button Click="Button_Click_1">Скрыть таблицу</Button>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

@@ -25,5 +25,15 @@ namespace DataBaseProject
             InitializeComponent();
             DgUsers.ItemsSource = BaseClass.Base.Users.ToList();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SPGrid.Visibility = Visibility.Visible;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            SPGrid.Visibility = Visibility.Collapsed;
+        }
     }
 }
