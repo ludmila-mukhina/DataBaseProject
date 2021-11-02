@@ -35,5 +35,10 @@ namespace DataBaseProject
         {
             SPGrid.Visibility = Visibility.Collapsed;
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            FrameClass.FrameMain.Navigate(new ListCatsPage());
+        }
     }
 }

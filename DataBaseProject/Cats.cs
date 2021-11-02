@@ -12,21 +12,26 @@ namespace DataBaseProject
     using System;
     using System.Collections.Generic;
     
-    public partial class GenderTable
+    public partial class Cats
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public GenderTable()
+        public Cats()
         {
-            this.Cats = new HashSet<Cats>();
-            this.Users = new HashSet<Users>();
+            this.Diets = new HashSet<Diets>();
+            this.TraitsCats = new HashSet<TraitsCats>();
         }
     
+        public int idCat { get; set; }
+        public string СatName { get; set; }
+        public string Breed { get; set; }
+        public System.DateTime CatDateBirtр { get; set; }
         public int IDGender { get; set; }
-        public string Genger { get; set; }
+        public string CatPhoto { get; set; }
     
+        public virtual GenderTable GenderTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cats> Cats { get; set; }
+        public virtual ICollection<Diets> Diets { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Users> Users { get; set; }
+        public virtual ICollection<TraitsCats> TraitsCats { get; set; }
     }
 }

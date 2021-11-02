@@ -25,8 +25,13 @@ namespace DataBaseProject
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Cats> Cats { get; set; }
+        public virtual DbSet<Diets> Diets { get; set; }
+        public virtual DbSet<FeedCat> FeedCat { get; set; }
         public virtual DbSet<GenderTable> GenderTable { get; set; }
         public virtual DbSet<RoleTable> RoleTable { get; set; }
+        public virtual DbSet<Traits> Traits { get; set; }
+        public virtual DbSet<TraitsCats> TraitsCats { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }
 }

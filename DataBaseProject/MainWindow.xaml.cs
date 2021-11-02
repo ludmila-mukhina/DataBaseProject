@@ -25,7 +25,7 @@ namespace DataBaseProject
             InitializeComponent();
             BaseClass.Base = new MukhinaTestBaseEntities();
             FrameClass.FrameMain = MainFrame;
-            FrameClass.FrameMain.Navigate(new AutoPage());
+            FrameClass.FrameMain.Navigate(new ListCatsPage());
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
