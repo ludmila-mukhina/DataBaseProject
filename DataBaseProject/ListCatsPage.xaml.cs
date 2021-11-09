@@ -52,5 +52,10 @@ namespace DataBaseProject
             }
             tb.Text = sum + " рублей";
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            FrameClass.FrameMain.Navigate(new CreateOrUpdatePage());
+        }
     }
 }

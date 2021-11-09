@@ -23,7 +23,7 @@ namespace DataBaseProject
         public MainWindow()
         {
             InitializeComponent();
-            BaseClass.Base = new MukhinaTestBaseEntities();
+            BaseClass.Base = new MukhinaTestBaseEntities1();
             FrameClass.FrameMain = MainFrame;
             FrameClass.FrameMain.Navigate(new ListCatsPage());
         }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace DataBaseProject
 {
-    class BaseClass
+    public partial class FeedCat
     {
-        public static MukhinaTestBaseEntities1 Base;
+     public   int QM { get; set; }
     }
 }

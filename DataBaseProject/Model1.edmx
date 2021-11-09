@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище MukhinaTestBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище MukhinaTestBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cats">
           <Key>
             <PropertyRef Name="idCat" />
@@ -87,7 +87,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Diets_Cats">
-          <End Role="Cats" Type="Self.Cats" Multiplicity="1" />
+          <End Role="Cats" Type="Self.Cats" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Diets" Type="Self.Diets" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cats">
@@ -111,7 +113,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TraitsCats_Cats">
-          <End Role="Cats" Type="Self.Cats" Multiplicity="1" />
+          <End Role="Cats" Type="Self.Cats" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="TraitsCats" Type="Self.TraitsCats" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cats">
@@ -196,61 +200,24 @@
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MukhinaTestBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="MukhinaTestBaseEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Cats" EntityType="MukhinaTestBaseModel.Cats" />
-          <EntitySet Name="Diets" EntityType="MukhinaTestBaseModel.Diets" />
-          <EntitySet Name="FeedCat" EntityType="MukhinaTestBaseModel.FeedCat" />
-          <EntitySet Name="GenderTable" EntityType="MukhinaTestBaseModel.GenderTable" />
-          <EntitySet Name="RoleTable" EntityType="MukhinaTestBaseModel.RoleTable" />
-          <EntitySet Name="Traits" EntityType="MukhinaTestBaseModel.Traits" />
-          <EntitySet Name="TraitsCats" EntityType="MukhinaTestBaseModel.TraitsCats" />
-          <EntitySet Name="Users" EntityType="MukhinaTestBaseModel.Users" />
-          <AssociationSet Name="FK_Cats_GenderTable" Association="MukhinaTestBaseModel.FK_Cats_GenderTable">
-            <End Role="GenderTable" EntitySet="GenderTable" />
-            <End Role="Cats" EntitySet="Cats" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Diets_Cats" Association="MukhinaTestBaseModel.FK_Diets_Cats">
-            <End Role="Cats" EntitySet="Cats" />
-            <End Role="Diets" EntitySet="Diets" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TraitsCats_Cats" Association="MukhinaTestBaseModel.FK_TraitsCats_Cats">
-            <End Role="Cats" EntitySet="Cats" />
-            <End Role="TraitsCats" EntitySet="TraitsCats" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Diets_FeedCat" Association="MukhinaTestBaseModel.FK_Diets_FeedCat">
-            <End Role="FeedCat" EntitySet="FeedCat" />
-            <End Role="Diets" EntitySet="Diets" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Users_GenderTable" Association="MukhinaTestBaseModel.FK_Users_GenderTable">
-            <End Role="GenderTable" EntitySet="GenderTable" />
-            <End Role="Users" EntitySet="Users" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Users_RoleTable" Association="MukhinaTestBaseModel.FK_Users_RoleTable">
-            <End Role="RoleTable" EntitySet="RoleTable" />
-            <End Role="Users" EntitySet="Users" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TraitsCats_Traits" Association="MukhinaTestBaseModel.FK_TraitsCats_Traits">
-            <End Role="Traits" EntitySet="Traits" />
-            <End Role="TraitsCats" EntitySet="TraitsCats" />
-          </AssociationSet>
-        </EntityContainer>
         <EntityType Name="Cats">
           <Key>
             <PropertyRef Name="idCat" />
           </Key>
           <Property Name="idCat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="СatName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Breed" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="СatName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Breed" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CatDateBirtр" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IDGender" Type="Int32" Nullable="false" />
           <Property Name="CatPhoto" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="GenderTable" Relationship="MukhinaTestBaseModel.FK_Cats_GenderTable" FromRole="Cats" ToRole="GenderTable" />
-          <NavigationProperty Name="Diets" Relationship="MukhinaTestBaseModel.FK_Diets_Cats" FromRole="Cats" ToRole="Diets" />
-          <NavigationProperty Name="TraitsCats" Relationship="MukhinaTestBaseModel.FK_TraitsCats_Cats" FromRole="Cats" ToRole="TraitsCats" />
+          <NavigationProperty Name="GenderTable" Relationship="Self.FK_Cats_GenderTable" FromRole="Cats" ToRole="GenderTable" />
+          <NavigationProperty Name="Diets" Relationship="Self.FK_Diets_Cats" FromRole="Cats" ToRole="Diets" />
+          <NavigationProperty Name="TraitsCats" Relationship="Self.FK_TraitsCats_Cats" FromRole="Cats" ToRole="TraitsCats" />
         </EntityType>
         <EntityType Name="Diets">
           <Key>
@@ -260,42 +227,42 @@
           <Property Name="idFeed" Type="Int32" Nullable="false" />
           <Property Name="idCat" Type="Int32" Nullable="false" />
           <Property Name="QuantityMonth" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cats" Relationship="MukhinaTestBaseModel.FK_Diets_Cats" FromRole="Diets" ToRole="Cats" />
-          <NavigationProperty Name="FeedCat" Relationship="MukhinaTestBaseModel.FK_Diets_FeedCat" FromRole="Diets" ToRole="FeedCat" />
+          <NavigationProperty Name="Cats" Relationship="Self.FK_Diets_Cats" FromRole="Diets" ToRole="Cats" />
+          <NavigationProperty Name="FeedCat" Relationship="Self.FK_Diets_FeedCat" FromRole="Diets" ToRole="FeedCat" />
         </EntityType>
         <EntityType Name="FeedCat">
           <Key>
             <PropertyRef Name="idFeed" />
           </Key>
           <Property Name="idFeed" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FeedName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="FeedName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Pricefeed" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Diets" Relationship="MukhinaTestBaseModel.FK_Diets_FeedCat" FromRole="FeedCat" ToRole="Diets" />
+          <NavigationProperty Name="Diets" Relationship="Self.FK_Diets_FeedCat" FromRole="FeedCat" ToRole="Diets" />
         </EntityType>
         <EntityType Name="GenderTable">
           <Key>
             <PropertyRef Name="IDGender" />
           </Key>
           <Property Name="IDGender" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Genger" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Cats" Relationship="MukhinaTestBaseModel.FK_Cats_GenderTable" FromRole="GenderTable" ToRole="Cats" />
-          <NavigationProperty Name="Users" Relationship="MukhinaTestBaseModel.FK_Users_GenderTable" FromRole="GenderTable" ToRole="Users" />
+          <Property Name="Genger" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cats" Relationship="Self.FK_Cats_GenderTable" FromRole="GenderTable" ToRole="Cats" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_GenderTable" FromRole="GenderTable" ToRole="Users" />
         </EntityType>
         <EntityType Name="RoleTable">
           <Key>
             <PropertyRef Name="IDRole" />
           </Key>
           <Property Name="IDRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Role" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Users" Relationship="MukhinaTestBaseModel.FK_Users_RoleTable" FromRole="RoleTable" ToRole="Users" />
+          <Property Name="Role" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_RoleTable" FromRole="RoleTable" ToRole="Users" />
         </EntityType>
         <EntityType Name="Traits">
           <Key>
             <PropertyRef Name="idTrait" />
           </Key>
           <Property Name="idTrait" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Trait" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TraitsCats" Relationship="MukhinaTestBaseModel.FK_TraitsCats_Traits" FromRole="Traits" ToRole="TraitsCats" />
+          <Property Name="Trait" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TraitsCats" Relationship="Self.FK_TraitsCats_Traits" FromRole="Traits" ToRole="TraitsCats" />
         </EntityType>
         <EntityType Name="TraitsCats">
           <Key>
@@ -304,26 +271,26 @@
           <Property Name="idTraitCat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idCat" Type="Int32" Nullable="false" />
           <Property Name="idTrait" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cats" Relationship="MukhinaTestBaseModel.FK_TraitsCats_Cats" FromRole="TraitsCats" ToRole="Cats" />
-          <NavigationProperty Name="Traits" Relationship="MukhinaTestBaseModel.FK_TraitsCats_Traits" FromRole="TraitsCats" ToRole="Traits" />
+          <NavigationProperty Name="Cats" Relationship="Self.FK_TraitsCats_Cats" FromRole="TraitsCats" ToRole="Cats" />
+          <NavigationProperty Name="Traits" Relationship="Self.FK_TraitsCats_Traits" FromRole="TraitsCats" ToRole="Traits" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="IDUser" />
           </Key>
           <Property Name="IDUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Login" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="Int32" Nullable="false" />
           <Property Name="IDGender" Type="Int32" Nullable="false" />
           <Property Name="IDRole" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="GenderTable" Relationship="MukhinaTestBaseModel.FK_Users_GenderTable" FromRole="Users" ToRole="GenderTable" />
-          <NavigationProperty Name="RoleTable" Relationship="MukhinaTestBaseModel.FK_Users_RoleTable" FromRole="Users" ToRole="RoleTable" />
+          <NavigationProperty Name="GenderTable" Relationship="Self.FK_Users_GenderTable" FromRole="Users" ToRole="GenderTable" />
+          <NavigationProperty Name="RoleTable" Relationship="Self.FK_Users_RoleTable" FromRole="Users" ToRole="RoleTable" />
         </EntityType>
         <Association Name="FK_Cats_GenderTable">
-          <End Type="MukhinaTestBaseModel.GenderTable" Role="GenderTable" Multiplicity="1" />
-          <End Type="MukhinaTestBaseModel.Cats" Role="Cats" Multiplicity="*" />
+          <End Role="GenderTable" Type="Self.GenderTable" Multiplicity="1" />
+          <End Role="Cats" Type="Self.Cats" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GenderTable">
               <PropertyRef Name="IDGender" />
@@ -334,8 +301,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Diets_Cats">
-          <End Type="MukhinaTestBaseModel.Cats" Role="Cats" Multiplicity="1" />
-          <End Type="MukhinaTestBaseModel.Diets" Role="Diets" Multiplicity="*" />
+          <End Role="Cats" Type="Self.Cats" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Diets" Type="Self.Diets" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cats">
               <PropertyRef Name="idCat" />
@@ -346,8 +315,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TraitsCats_Cats">
-          <End Type="MukhinaTestBaseModel.Cats" Role="Cats" Multiplicity="1" />
-          <End Type="MukhinaTestBaseModel.TraitsCats" Role="TraitsCats" Multiplicity="*" />
+          <End Role="Cats" Type="Self.Cats" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TraitsCats" Type="Self.TraitsCats" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cats">
               <PropertyRef Name="idCat" />
@@ -358,8 +329,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Diets_FeedCat">
-          <End Type="MukhinaTestBaseModel.FeedCat" Role="FeedCat" Multiplicity="1" />
-          <End Type="MukhinaTestBaseModel.Diets" Role="Diets" Multiplicity="*" />
+          <End Role="FeedCat" Type="Self.FeedCat" Multiplicity="1" />
+          <End Role="Diets" Type="Self.Diets" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FeedCat">
               <PropertyRef Name="idFeed" />
@@ -370,8 +341,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Users_GenderTable">
-          <End Type="MukhinaTestBaseModel.GenderTable" Role="GenderTable" Multiplicity="1" />
-          <End Type="MukhinaTestBaseModel.Users" Role="Users" Multiplicity="*" />
+          <End Role="GenderTable" Type="Self.GenderTable" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GenderTable">
               <PropertyRef Name="IDGender" />
@@ -382,8 +353,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Users_RoleTable">
-          <End Type="MukhinaTestBaseModel.RoleTable" Role="RoleTable" Multiplicity="1" />
-          <End Type="MukhinaTestBaseModel.Users" Role="Users" Multiplicity="*" />
+          <End Role="RoleTable" Type="Self.RoleTable" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="RoleTable">
               <PropertyRef Name="IDRole" />
@@ -394,8 +365,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TraitsCats_Traits">
-          <End Type="MukhinaTestBaseModel.Traits" Role="Traits" Multiplicity="1" />
-          <End Type="MukhinaTestBaseModel.TraitsCats" Role="TraitsCats" Multiplicity="*" />
+          <End Role="Traits" Type="Self.Traits" Multiplicity="1" />
+          <End Role="TraitsCats" Type="Self.TraitsCats" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Traits">
               <PropertyRef Name="idTrait" />
@@ -405,86 +376,124 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityContainer Name="MukhinaTestBaseEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cats" EntityType="Self.Cats" />
+          <EntitySet Name="Diets" EntityType="Self.Diets" />
+          <EntitySet Name="FeedCat" EntityType="Self.FeedCat" />
+          <EntitySet Name="GenderTable" EntityType="Self.GenderTable" />
+          <EntitySet Name="RoleTable" EntityType="Self.RoleTable" />
+          <EntitySet Name="Traits" EntityType="Self.Traits" />
+          <EntitySet Name="TraitsCats" EntityType="Self.TraitsCats" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK_Cats_GenderTable" Association="Self.FK_Cats_GenderTable">
+            <End Role="GenderTable" EntitySet="GenderTable" />
+            <End Role="Cats" EntitySet="Cats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Diets_Cats" Association="Self.FK_Diets_Cats">
+            <End Role="Cats" EntitySet="Cats" />
+            <End Role="Diets" EntitySet="Diets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TraitsCats_Cats" Association="Self.FK_TraitsCats_Cats">
+            <End Role="Cats" EntitySet="Cats" />
+            <End Role="TraitsCats" EntitySet="TraitsCats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Diets_FeedCat" Association="Self.FK_Diets_FeedCat">
+            <End Role="FeedCat" EntitySet="FeedCat" />
+            <End Role="Diets" EntitySet="Diets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_GenderTable" Association="Self.FK_Users_GenderTable">
+            <End Role="GenderTable" EntitySet="GenderTable" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_RoleTable" Association="Self.FK_Users_RoleTable">
+            <End Role="RoleTable" EntitySet="RoleTable" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TraitsCats_Traits" Association="Self.FK_TraitsCats_Traits">
+            <End Role="Traits" EntitySet="Traits" />
+            <End Role="TraitsCats" EntitySet="TraitsCats" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище MukhinaTestBaseModelContainer" CdmEntityContainer="MukhinaTestBaseEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище MukhinaTestBaseModelContainer" CdmEntityContainer="MukhinaTestBaseEntities1">
           <EntitySetMapping Name="Cats">
             <EntityTypeMapping TypeName="MukhinaTestBaseModel.Cats">
               <MappingFragment StoreEntitySet="Cats">
-                <ScalarProperty Name="CatPhoto" ColumnName="CatPhoto" />
-                <ScalarProperty Name="IDGender" ColumnName="IDGender" />
-                <ScalarProperty Name="CatDateBirtр" ColumnName="CatDateBirtр" />
-                <ScalarProperty Name="Breed" ColumnName="Breed" />
-                <ScalarProperty Name="СatName" ColumnName="СatName" />
                 <ScalarProperty Name="idCat" ColumnName="idCat" />
+                <ScalarProperty Name="СatName" ColumnName="СatName" />
+                <ScalarProperty Name="Breed" ColumnName="Breed" />
+                <ScalarProperty Name="CatDateBirtр" ColumnName="CatDateBirtр" />
+                <ScalarProperty Name="IDGender" ColumnName="IDGender" />
+                <ScalarProperty Name="CatPhoto" ColumnName="CatPhoto" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Diets">
             <EntityTypeMapping TypeName="MukhinaTestBaseModel.Diets">
               <MappingFragment StoreEntitySet="Diets">
-                <ScalarProperty Name="QuantityMonth" ColumnName="QuantityMonth" />
-                <ScalarProperty Name="idCat" ColumnName="idCat" />
-                <ScalarProperty Name="idFeed" ColumnName="idFeed" />
                 <ScalarProperty Name="idDiet" ColumnName="idDiet" />
+                <ScalarProperty Name="idFeed" ColumnName="idFeed" />
+                <ScalarProperty Name="idCat" ColumnName="idCat" />
+                <ScalarProperty Name="QuantityMonth" ColumnName="QuantityMonth" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FeedCat">
             <EntityTypeMapping TypeName="MukhinaTestBaseModel.FeedCat">
               <MappingFragment StoreEntitySet="FeedCat">
-                <ScalarProperty Name="Pricefeed" ColumnName="Pricefeed" />
-                <ScalarProperty Name="FeedName" ColumnName="FeedName" />
                 <ScalarProperty Name="idFeed" ColumnName="idFeed" />
+                <ScalarProperty Name="FeedName" ColumnName="FeedName" />
+                <ScalarProperty Name="Pricefeed" ColumnName="Pricefeed" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GenderTable">
             <EntityTypeMapping TypeName="MukhinaTestBaseModel.GenderTable">
               <MappingFragment StoreEntitySet="GenderTable">
-                <ScalarProperty Name="Genger" ColumnName="Genger" />
                 <ScalarProperty Name="IDGender" ColumnName="IDGender" />
+                <ScalarProperty Name="Genger" ColumnName="Genger" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RoleTable">
             <EntityTypeMapping TypeName="MukhinaTestBaseModel.RoleTable">
               <MappingFragment StoreEntitySet="RoleTable">
-                <ScalarProperty Name="Role" ColumnName="Role" />
                 <ScalarProperty Name="IDRole" ColumnName="IDRole" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Traits">
             <EntityTypeMapping TypeName="MukhinaTestBaseModel.Traits">
               <MappingFragment StoreEntitySet="Traits">
-                <ScalarProperty Name="Trait" ColumnName="Trait" />
                 <ScalarProperty Name="idTrait" ColumnName="idTrait" />
+                <ScalarProperty Name="Trait" ColumnName="Trait" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TraitsCats">
             <EntityTypeMapping TypeName="MukhinaTestBaseModel.TraitsCats">
               <MappingFragment StoreEntitySet="TraitsCats">
-                <ScalarProperty Name="idTrait" ColumnName="idTrait" />
-                <ScalarProperty Name="idCat" ColumnName="idCat" />
                 <ScalarProperty Name="idTraitCat" ColumnName="idTraitCat" />
+                <ScalarProperty Name="idCat" ColumnName="idCat" />
+                <ScalarProperty Name="idTrait" ColumnName="idTrait" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="MukhinaTestBaseModel.Users">
               <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="IDRole" ColumnName="IDRole" />
-                <ScalarProperty Name="IDGender" ColumnName="IDGender" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IDGender" ColumnName="IDGender" />
+                <ScalarProperty Name="IDRole" ColumnName="IDRole" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

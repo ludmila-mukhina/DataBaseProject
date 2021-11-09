@@ -13,10 +13,10 @@ namespace DataBaseProject
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MukhinaTestBaseEntities : DbContext
+    public partial class MukhinaTestBaseEntities1 : DbContext
     {
-        public MukhinaTestBaseEntities()
-            : base("name=MukhinaTestBaseEntities")
+        public MukhinaTestBaseEntities1()
+            : base("name=MukhinaTestBaseEntities1")
         {
         }
     

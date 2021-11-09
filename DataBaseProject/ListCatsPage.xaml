@@ -11,6 +11,8 @@
         <BitmapImage x:Key="defaulimage" UriSource="/Resources/picture.png"></BitmapImage>
     </Page.Resources>
     <Grid>
+        <StackPanel>
+        <Button Click="Button_Click">Добавить нового кота</Button>
         <ListView Name="LVCats" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -35,5 +37,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        </StackPanel>
     </Grid>
 </Page>
