@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:DataBaseProject"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CreateOrUpdatePage" FontSize="18">
+      Title="CreateOrUpdatePage" FontSize="12">
     <Grid>
         <StackPanel>
             <GroupBox Header="Введите имя кота">
@@ -28,6 +28,11 @@
             <GroupBox Header="Выберите черты кота">
                 <ListBox Name="LBTraits" SelectionMode="Multiple"></ListBox>
             </GroupBox>
+            <!--Далее создаем шаблон ListBox, внутрь которого поместим 
+            текстовое поле с названием корма и поле для записи его количества.
+            Для того чтобы данные из textBox были сразу сохранены и были доступны для добавления в базу,
+            нужно создать в частичном классе нужной таблицы свойство, и связать его двухсторонней привязкой с TextBox.
+            Тогда данные будут сразу же сохраняться в свойстве.-->
             <GroupBox Header="Выберите корм для кота">
                 <ListBox Name="LBDiets" SelectionMode="Multiple">
                     <ListBox.ItemTemplate>
