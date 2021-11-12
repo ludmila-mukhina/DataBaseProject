@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:DataBaseProject"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CreateOrUpdatePage" FontSize="12">
+      Title="CreateOrUpdatePage" FontSize="16">
     <Grid>
         <StackPanel>
             <GroupBox Header="Введите имя кота">
@@ -24,6 +24,7 @@
                     <RadioButton Name="RBGenderW">Женский</RadioButton>
                 </StackPanel>
             </GroupBox>
+            <Image Name="ImageCat" Width="50" Height="50" HorizontalAlignment="Left"/>
             <Button Click="Button_Click_1">Выберите фото для кота</Button>
             <GroupBox Header="Выберите черты кота">
                 <ListBox Name="LBTraits" SelectionMode="Multiple"></ListBox>

@@ -31,7 +31,9 @@
                                 <TextBlock>Уходит на питание: </TextBlock>
                                 <TextBlock Loaded="TextBlock_Loaded_1" Uid="{Binding idCat}"></TextBlock>
                                 <Image Source="{Binding CatPhoto, TargetNullValue={StaticResource defaulimage}}" Height="50" Width="100"/>
-                            </StackPanel>
+                                    <Button Uid="{Binding idCat}" Click="Button_Click_1">Удалить</Button>
+                                    <Button Uid="{Binding idCat}" Click="Button_Click_2">Редактировать</Button>
+                                </StackPanel>
                         </Grid>
                     </Border>
                 </DataTemplate>
