@@ -20,11 +20,11 @@ namespace DataBaseProject
     /// </summary>
     public partial class MenuAdminPage : Page
     {
-        private Users _user;
+        private Users _user;  // переменная для храния объекта
         public MenuAdminPage(Users User)
         {
             InitializeComponent();
-            _user = User;
+            _user = User;  // записываем объект из контруктора в выше созданный объект для того, чтобы эти данные были даступны на всей странице
             DgUsers.ItemsSource = BaseClass.Base.Users.ToList();
         }
 
@@ -45,7 +45,7 @@ namespace DataBaseProject
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            FrameClass.FrameMain.Navigate(new UserPage(_user));
+            FrameClass.FrameMain.Navigate(new UserPage(_user)); // переход администратора в личный кабинет
         }
     }
 }

@@ -34,7 +34,7 @@ namespace DataBaseProject
             _user.Surname = TBUpSurname.Text;
             BaseClass.Base.SaveChanges();
             MessageBox.Show("Изменения сохранены");
-            this.Close();
+            this.Close();  // закрываем это окно
         }
     }
 }
