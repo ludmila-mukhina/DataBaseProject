@@ -20,9 +20,11 @@ namespace DataBaseProject
     /// </summary>
     public partial class MenuAdminPage : Page
     {
-        public MenuAdminPage()
+        private Users _user;
+        public MenuAdminPage(Users User)
         {
             InitializeComponent();
+            _user = User;
             DgUsers.ItemsSource = BaseClass.Base.Users.ToList();
         }
 
@@ -39,6 +41,11 @@ namespace DataBaseProject
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             FrameClass.FrameMain.Navigate(new ListCatsPage());
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            FrameClass.FrameMain.Navigate(new UserPage(_user));
         }
     }
 }

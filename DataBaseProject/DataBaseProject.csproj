@@ -69,7 +69,7 @@
     <Compile Include="Cats.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="CreateOrUpdatePage.xaml.cs">
+    <Compile Include="Pages\CreateOrUpdatePage.xaml.cs">
       <DependentUpon>CreateOrUpdatePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Diets.cs">
@@ -82,7 +82,7 @@
     <Compile Include="GenderTable.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ListCatsPage.xaml.cs">
+    <Compile Include="Pages\ListCatsPage.xaml.cs">
       <DependentUpon>ListCatsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model1.Context.cs">
@@ -116,14 +116,23 @@
     <Compile Include="TraitsCats.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="UpdateWindow.xaml.cs">
+      <DependentUpon>UpdateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserPage.xaml.cs">
+      <DependentUpon>UserPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Users.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Page Include="CreateOrUpdatePage.xaml">
+    <Compile Include="UsersPhoto.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Page Include="Pages\CreateOrUpdatePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ListCatsPage.xaml">
+    <Page Include="Pages\ListCatsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -152,6 +161,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\RegPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -213,6 +230,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\NoPhoto.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

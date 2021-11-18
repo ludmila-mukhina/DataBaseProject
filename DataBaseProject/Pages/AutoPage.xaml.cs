@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -39,10 +40,11 @@ namespace DataBaseProject
                 {
                     case 1:
                         MessageBox.Show("Здравствуйте, администратор " + User.Name);
-                        FrameClass.FrameMain.Navigate(new MenuAdminPage());
+                        FrameClass.FrameMain.Navigate(new MenuAdminPage(User));
                         break;
                     case 2:
                         MessageBox.Show("Здравствуйте, пользователь " + User.Name);
+                        FrameClass.FrameMain.Navigate(new UserPage(User));
                         break;
                 }
             }

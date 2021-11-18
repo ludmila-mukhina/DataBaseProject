@@ -33,5 +33,6 @@ namespace DataBaseProject
         public virtual DbSet<Traits> Traits { get; set; }
         public virtual DbSet<TraitsCats> TraitsCats { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<UsersPhoto> UsersPhoto { get; set; }
     }
 }

@@ -17,7 +17,7 @@
             <GroupBox Header="Введите пароль">
                 <PasswordBox Name="TbPasAvto" Password="12345"/>
             </GroupBox>
-            <Button Click="Button_Click">Авторизация</Button>
+            <Button Click="Button_Click" Name="Btn">Авторизация</Button>
         </StackPanel>
     </Grid>
 </Page>

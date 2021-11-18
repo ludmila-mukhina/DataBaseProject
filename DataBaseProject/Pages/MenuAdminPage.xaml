@@ -12,6 +12,7 @@
         <StackPanel>
             <Button Click="Button_Click">Просмотр зарегистрированных пользователей</Button>
             <Button Click="Button_Click_2">Просмотр списка котов</Button>
+            <Button Click="Button_Click_3">Перейти в личный кабинет</Button>
             <StackPanel Name="SPGrid" Visibility="Collapsed">
             <DataGrid Name="DgUsers" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalAlignment="Center" HorizontalContentAlignment="Center" >
             <DataGrid.Columns>

@@ -5,21 +5,23 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ce33fe6f21264223af881b9410fe7899" Name="Diagram1">
-        <EntityTypeShape EntityType="MukhinaTestBaseModel.Cats" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MukhinaTestBaseModel.Diets" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MukhinaTestBaseModel.FeedCat" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MukhinaTestBaseModel.GenderTable" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MukhinaTestBaseModel.RoleTable" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MukhinaTestBaseModel.Traits" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="MukhinaTestBaseModel.TraitsCats" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MukhinaTestBaseModel.Users" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="MukhinaTestBaseModel.FK_Cats_GenderTable" ManuallyRouted="false" />
-        <AssociationConnector Association="MukhinaTestBaseModel.FK_Diets_Cats" ManuallyRouted="false" />
-        <AssociationConnector Association="MukhinaTestBaseModel.FK_TraitsCats_Cats" ManuallyRouted="false" />
-        <AssociationConnector Association="MukhinaTestBaseModel.FK_Diets_FeedCat" ManuallyRouted="false" />
-        <AssociationConnector Association="MukhinaTestBaseModel.FK_Users_GenderTable" ManuallyRouted="false" />
-        <AssociationConnector Association="MukhinaTestBaseModel.FK_Users_RoleTable" ManuallyRouted="false" />
-        <AssociationConnector Association="MukhinaTestBaseModel.FK_TraitsCats_Traits" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MukhinaTestBaseModel.Cats" Width="1.5" PointX="3" PointY="7.875" />
+        <EntityTypeShape EntityType="MukhinaTestBaseModel.Diets" Width="1.5" PointX="5.25" PointY="8.125" />
+        <EntityTypeShape EntityType="MukhinaTestBaseModel.FeedCat" Width="1.5" PointX="3" PointY="12.375" />
+        <EntityTypeShape EntityType="MukhinaTestBaseModel.GenderTable" Width="1.5" PointX="0.75" PointY="4.625" />
+        <EntityTypeShape EntityType="MukhinaTestBaseModel.RoleTable" Width="1.5" PointX="0.75" PointY="1.75" />
+        <EntityTypeShape EntityType="MukhinaTestBaseModel.Traits" Width="1.5" PointX="3" PointY="1.5" />
+        <EntityTypeShape EntityType="MukhinaTestBaseModel.TraitsCats" Width="1.5" PointX="5.25" PointY="5.25" />
+        <EntityTypeShape EntityType="MukhinaTestBaseModel.Users" Width="1.5" PointX="3" PointY="4.125" />
+        <EntityTypeShape EntityType="MukhinaTestBaseModel.UsersPhoto" Width="1.5" PointX="5.25" PointY="2.625" />
+        <AssociationConnector Association="MukhinaTestBaseModel.FK_Cats_GenderTable" />
+        <AssociationConnector Association="MukhinaTestBaseModel.FK_Diets_Cats" />
+        <AssociationConnector Association="MukhinaTestBaseModel.FK_TraitsCats_Cats" />
+        <AssociationConnector Association="MukhinaTestBaseModel.FK_Diets_FeedCat" />
+        <AssociationConnector Association="MukhinaTestBaseModel.FK_Users_GenderTable" />
+        <AssociationConnector Association="MukhinaTestBaseModel.FK_Users_RoleTable" />
+        <AssociationConnector Association="MukhinaTestBaseModel.FK_TraitsCats_Traits" />
+        <AssociationConnector Association="MukhinaTestBaseModel.FK_UsersPhoto_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

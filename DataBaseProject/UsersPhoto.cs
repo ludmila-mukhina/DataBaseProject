@@ -12,18 +12,12 @@ namespace DataBaseProject
     using System;
     using System.Collections.Generic;
     
-    public partial class Users
+    public partial class UsersPhoto
     {
         public int IDUser { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Login { get; set; }
-        public int Password { get; set; }
-        public int IDGender { get; set; }
-        public int IDRole { get; set; }
+        public string PhotoPath { get; set; }
+        public byte[] PhotoBinary { get; set; }
     
-        public virtual GenderTable GenderTable { get; set; }
-        public virtual RoleTable RoleTable { get; set; }
-        public virtual UsersPhoto UsersPhoto { get; set; }
+        public virtual Users Users { get; set; }
     }
 }
