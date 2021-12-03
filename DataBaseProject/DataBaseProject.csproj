@@ -69,6 +69,7 @@
     <Compile Include="Cats.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="PageChange.cs" />
     <Compile Include="Pages\CreateOrUpdatePage.xaml.cs">
       <DependentUpon>CreateOrUpdatePage.xaml</DependentUpon>
     </Compile>
